@@ -106,10 +106,10 @@ const registrarCliente = async () => {
 
 
     if ((contrasena.length > 0 && confirmarContrasena.length > 0) && (contrasena == confirmarContrasena)) {
-        
+
     }
     else {
-        alert('Ingresar todos los datos o ')
+        alert('Ingresar todos los datos')
     }
 }
 
@@ -170,7 +170,31 @@ const actualizarCliente = async () => {
         // tipoModificacion: 'Unitaria'
     }
 
-    if ((contrasena.length > 0 && confirmarContrasena.length > 0) && (contrasena == confirmarContrasena)) {
+    const exNombre = /^[a-zA-Z\s]+$/;
+    const exDoc = /^\d{5,11}$/
+    const exCelular = /^3\d{9}$/
+    const exDireccion = /^[a-zA-Z0-9\s\-.,#áéíóúÁÉÍÓÚñÑ]+$/
+    const exCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+
+
+
+    if (tipo == '' || doc == '' || nombre == '' || celular == '' || direccion == '' || correo == '' || estado == '' || contrasena == '' || confirmarContrasena == '') {
+        throw 'Ingresar todos los campos'
+    } else if (!exDoc.test(doc)) {
+        alert('Número de documento invalido')
+    } else if (!exNombre.test(nombre)) {
+        alert('Solo se permiten letras')
+    } else if (!exCelular.test(celular)) {
+        alert('Solo números que comiencen en 3')
+    } else if (!exDireccion.test(direccion)) {
+        alert('Dirección invalida')
+    } else if (!exCorreo.test(correo)) {
+        alert('Correo invalido')
+    } else if (contrasena !== confirmarContrasena) {
+        alert('Contraseña no coincide')
+    } else {
         fetch(url, {
             method: 'PUT',
             mode: 'cors',
@@ -184,9 +208,11 @@ const actualizarCliente = async () => {
                 window.location.href = "clientes.html";
             })
 
-    } else {
-        alert('El contraseña y la confirmación de la contraseña no coinciden. Por favor verifique')
     }
+
+
+
+
 }
 
 const eliminar = (_id) => {
