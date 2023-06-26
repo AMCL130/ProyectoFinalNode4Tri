@@ -36,7 +36,7 @@ const listarCliente = async () => {
 listarCliente()
 
 const registrarCliente = async () => {
-    document.querySelector('#formCreareCliente').addEventListener('submit', e=>e.preventDefault())
+    document.querySelector('#formCreareCliente').addEventListener('submit', e => e.preventDefault())
     //Captura de valores de datos enviados desde el formulario
     let tipo = document.getElementById('tipo').value
     let doc = document.getElementById('doc').value
@@ -60,7 +60,33 @@ const registrarCliente = async () => {
         confirmarContrasena: confirmarContrasena
     }
 
-    if ((contrasena.length > 0 && confirmarContrasena.length > 0) && (contrasena == confirmarContrasena)) {
+    // console.log(doc)
+
+    const exNombre = /^[a-zA-Z\s]+$/;
+    const exDoc = /^\d{5,11}$/
+    const exCelular = /^3\d{9}$/
+    const exDireccion = /^[a-zA-Z0-9\s\-.,#áéíóúÁÉÍÓÚñÑ]+$/
+    const exCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+
+
+
+    if (tipo == '' || doc == '' || nombre == '' || celular == '' || direccion == '' || correo == '' || estado == '' || contrasena == '' || confirmarContrasena == '') {
+        throw 'Ingresar todos los campos'
+    } else if (!exDoc.test(doc)) {
+        alert('Número de documento invalido')
+    } else if (!exNombre.test(nombre)) {
+        alert('Solo se permiten letras')
+    } else if (!exCelular.test(celular)) {
+        alert('Solo números que comiencen en 3')
+    } else if (!exDireccion.test(direccion)) {
+        alert('Dirección invalida')
+    } else if (!exCorreo.test(correo)) {
+        alert('Correo invalido')
+    } else if (contrasena !== confirmarContrasena) {
+        alert('Contraseña no coincide')
+    } else {
         fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -73,6 +99,14 @@ const registrarCliente = async () => {
                 alert(data.cliente + ' cliente registrado con exito');
                 window.location.href = "clientes.html";
             });
+
+    }
+
+
+
+
+    if ((contrasena.length > 0 && confirmarContrasena.length > 0) && (contrasena == confirmarContrasena)) {
+        
     }
     else {
         alert('Ingresar todos los datos o ')
@@ -80,16 +114,16 @@ const registrarCliente = async () => {
 }
 
 const editar = (cliente) => {
-    let _id =document.getElementById('_id').value = '';
-    let tipo= document.getElementById('tipo').value = '';
-    let doc= document.getElementById('doc').value = '';
-    let nombre= document.getElementById('nombre').value = '';
-    let celular= document.getElementById('celular').value = '';
-    let direccion= document.getElementById('direccion').value = '';
-    let correo= document.getElementById('correo').value = '';
-    let estado= document.getElementById('estado').value = '';
-    let contrasena= document.getElementById('contrasena').value = '';
-    let confirmarContrasena= document.getElementById('confirmarContrasena').value = '';
+    let _id = document.getElementById('_id').value = '';
+    let tipo = document.getElementById('tipo').value = '';
+    let doc = document.getElementById('doc').value = '';
+    let nombre = document.getElementById('nombre').value = '';
+    let celular = document.getElementById('celular').value = '';
+    let direccion = document.getElementById('direccion').value = '';
+    let correo = document.getElementById('correo').value = '';
+    let estado = document.getElementById('estado').value = '';
+    let contrasena = document.getElementById('contrasena').value = '';
+    let confirmarContrasena = document.getElementById('confirmarContrasena').value = '';
 
     document.getElementById('_id').value = cliente._id
     document.getElementById('tipo').value = cliente.tipo
@@ -108,7 +142,7 @@ const editar = (cliente) => {
 const actualizarCliente = async () => {
     //Captura de valores de datos enviados desde el formulario
 
-    document.querySelector('#formEditC')?.addEventListener('click', function(e){ e.preventDefault()})
+    document.querySelector('#formEditC')?.addEventListener('click', function (e) { e.preventDefault() })
 
 
     let tipo = document.getElementById('tipo').value
@@ -194,9 +228,9 @@ if (document.querySelector('#btnActualizar')) {
 }
 
 
-const editarButton= document.querySelector('#btnEditar');
+const editarButton = document.querySelector('#btnEditar');
 
-if(editarButton){
+if (editarButton) {
     editarButton.addEventListener('click', actualizarCliente)
 }
 
