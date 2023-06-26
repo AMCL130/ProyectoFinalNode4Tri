@@ -14,7 +14,7 @@ if(formulario){
             
             const expressionNombre= /^[a_zA-Z\s]+$/;
             const expressionCelular = /^3\d{9}$/;
-            const expressionCorreo = /^\S+@\S+\.\S+$/
+            const expressionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     
             const nombreCarrito = document.getElementById('nombreCarrito').value;
             const correoCarrito = document.getElementById('correoCarrito').value;

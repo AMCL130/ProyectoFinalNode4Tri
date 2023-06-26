@@ -53,7 +53,24 @@ const registrarProducto = async () => {
         estado: estado
     }
 
-    if (nombre !== '' && precio !== '' && cantidad !== '' && descripcion !== '' && estado !== '') {
+
+    const exNombre = /^[a-zA-Z\s]+$/;
+    const exPrecio = /^\d+(\.\d+)?$/;
+    const exCantidad = /^\d+$/
+
+
+    if (nombre == '' || precio == '' || cantidad == '' || descripcion == '' || estado == '') {
+        alert('Por favor llenar todos los campos')
+
+    } else if (!exNombre.test(nombre)) {
+        alert('Nombre: Solo se permiten letras')
+    } else if (!exPrecio.test(precio)) {
+        alert('precio: Solo se permiten numeros')
+    } else if ((!exCantidad.test(cantidad)) && cantidad < 0) {
+        alert('cantidad: solo se permiten enteros positivos')
+    }
+
+    else {
         fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -66,8 +83,6 @@ const registrarProducto = async () => {
                 alert(data.producto + ' producto registrado con exito');
                 window.location.href = "listarProductos.html";
             });
-    } else {
-        alert('Por favor llenar todos los campos')
     }
 }
 
@@ -92,8 +107,8 @@ const editar = (producto) => {
 
 const actualizarProducto = async () => {
 
-    if(document.querySelector('#formEditP')){
-        document.querySelector('#formEditP').addEventListener('submit', function(e){ e.preventDefault()})
+    if (document.querySelector('#formEditP')) {
+        document.querySelector('#formEditP').addEventListener('submit', function (e) { e.preventDefault() })
     }
 
 
@@ -119,7 +134,24 @@ const actualizarProducto = async () => {
 
     }
 
-    if (producto !== null) {
+
+    const exNombre = /^[a-zA-Z\s]+$/;
+    const exPrecio = /^\d+(\.\d+)?$/;
+    const exCantidad = /^\d+$/
+
+
+    if (nombre == '' || precio == '' || cantidad == '' || descripcion == '' || estado == '') {
+        alert('Por favor llenar todos los campos')
+
+    } else if (!exNombre.test(nombre)) {
+        alert('Nombre: Solo se permiten letras')
+    } else if (!exPrecio.test(precio)) {
+        alert('precio: Solo se permiten numeros')
+    } else if ((!exCantidad.test(cantidad)) && cantidad < 0) {
+        alert('cantidad: solo se permiten enteros positivos')
+    }
+
+    else {
         fetch(url, {
             method: 'PUT',
             mode: 'cors',
@@ -132,10 +164,8 @@ const actualizarProducto = async () => {
                 alert("Producto editado correctamente");
                 window.location.href = "listarProductos.html";
             })
-
-    } else {
-        alert('No se pudo editar el producto')
     }
+
 }
 
 const eliminar = (_id) => {
