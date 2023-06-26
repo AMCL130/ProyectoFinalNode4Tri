@@ -75,7 +75,7 @@ const registrarCliente = async () => {
             });
     }
     else {
-        alert('Las contraseñas no coinciden')
+        alert('Ingresar todos los datos o ')
     }
 }
 

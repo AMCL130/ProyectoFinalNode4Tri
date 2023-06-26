@@ -30,21 +30,23 @@ formulario.addEventListener("submit", function(e){
 
         if(tipo=='' || doc=='' || nombre=='' || celular=='' || direccion=='' || correo=='' || estado=='' || contrasena=='' || confirmarContrasena==''){
             throw 'Ingresar todos los campos'
-        }if(exDoc.test(doc)){
+        }else if(exDoc.test(doc)){
             throw 'Número de documento invalido'
-        }if(exNombre.test(nombre)){
+        }else if(exNombre.test(nombre)){
             throw 'Solo se permiten letras'
-        }if(exCelular.test(celular)){
+        }else if(exCelular.test(celular)){
             throw 'Solo números que comiencen en 3'
-        }if(exDireccion.test(direccion)){
+        }else if(exDireccion.test(direccion)){
             throw 'Dirección invalida'
-        }if(exCorreo.test(correo)){
+        }else if(exCorreo.test(correo)){
             throw 'Correo invalido'
-        // }if(contrasena !== confirmarContrasena){
-        //     throw 'Contraseña invalida'
+        }else if(contrasena !== confirmarContrasena){
+            throw 'Contraseña no coincide'
+        }else{
+            alert('Cliente creado con exito')
+
         }
 
-        alert('Cliente creado con exito')
 
 
         
