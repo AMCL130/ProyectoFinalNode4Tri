@@ -3,7 +3,7 @@
 
 const formulario= document.getElementById('formCreareCliente');
 
-formulario.addEventListener("click", function(e){
+formulario.addEventListener("submit", function(e){
     e.preventDefault();
 
     // Definicion de expresiones regulares
@@ -28,7 +28,7 @@ formulario.addEventListener("click", function(e){
 
     try {
 
-        if(doc=='' || nombre==''  || contrasena=='' || confirmarContrasena==''|| celular==''|| direccion==''||correo==''){
+        if(tipo=='' || doc=='' || nombre=='' || celular=='' || direccion=='' || correo=='' || estado=='' || contrasena=='' || confirmarContrasena==''){
             throw 'Ingresar todos los campos'
         }if(exDoc.test(doc)){
             throw 'Número de documento invalido'
