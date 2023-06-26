@@ -1,0 +1,17 @@
+.card{
+    border-radius: 10px black solid;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #cc9ed9;
+    border: 2px solid #161819;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.card input{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}

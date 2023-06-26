@@ -1,0 +1,196 @@
+/********** Template CSS **********/
+:root {
+    --primary: #6222CC;
+    --secondary: #6222CC;
+    --light: #F6F4F9;
+    --dark: #04000B;
+}
+
+
+
+.navbar-light .navbar-nav .nav-link {
+    position: relative;
+    margin-right: 25px;
+    padding: 35px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    transition: .5s;
+}
+
+
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--secondary) !important;
+}
+
+
+
+.navbar-light .navbar-brand img {
+    max-height: 160px;
+    transition: .5s;
+        
+}
+
+.sticky-top.navbar-light .navbar-brand img {
+    max-height: 45px;
+}
+
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-light {
+        position: relative;
+        background: #FFFFFF;
+    }
+
+    .navbar-light .navbar-collapse {
+        margin-top: 15px;
+        border-top: 1px solid #dddddd;
+        
+    }
+
+    .navbar-light .navbar-nav .nav-link,
+    .sticky-top.navbar-light .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+        color: var(--dark) !important;
+    }
+
+    .navbar-light .navbar-brand h1 {
+        color: var(--primary);
+    }
+
+    .navbar-light .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-light {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid rgba(256, 256, 256, .1);
+        z-index: 999;
+    }
+    
+    .sticky-top.navbar-light {
+        position: fixed;
+        background: #FFFFFF;
+    }
+
+    .sticky-top.navbar-light .navbar-brand h1 {
+        color: var(--primary);
+    }
+
+    .navbar-light .navbar-nav .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar-light .navbar-nav .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+
+    .navbar-light .btn {
+        color: var(--dark);
+        background: #FFFFFF;
+    }
+
+    .sticky-top.navbar-light .btn {
+        color: var(--dark);
+        background: var(--secondary);
+    }
+}
+
+
+/*** Hero Header ***/
+
+
+
+
+
+/* Inicio Section Carrito */
+
+.carritoSection{
+    padding-top: 100px;
+    font-family: 'Ysabeau Infant', sans-serif;
+
+}
+
+.carritoSection h1{
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
+    background-color: #4f00aa;
+    background-image: linear-gradient(45deg, #4f00aa, #000000);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    margin-top: 15%;
+}
+
+.row{
+    background-color: ;
+} 
+
+.col-lg-7{
+    
+}
+
+.col-lg-7 h5, p{ 
+    color: #000000;
+}
+
+
+
+.carta2{
+    background-color: #834290;
+}
+
+.carta2 h3, h4, h5, p, span{
+    color: #F6F4F9;
+    font-family: 'Ysabeau Infant', sans-serif;
+
+}
+.form-label{
+    color: #dddddd;
+}
+
+
+/* fin Section Carrito */
+
+.card1{
+    border-radius: 10px black solid;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #cc9ed9;
+    border: 2px solid #161819;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.card1 input{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
